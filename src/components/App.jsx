@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import api from '../config';
-
 import Searchbar from './Searchbar/Searchbar';
 import ImageGallery from './ImageGallery/ImageGallery';
 import ImageGalleryItem from './ImageGalleryItem/ImageGalleryItem';
 import Button from './Button/Button';
 import Modal from './Modal/Modal';
 import Spinner from './Loader/Loader';
-
 
 class App extends Component {
   state = {
@@ -53,11 +51,14 @@ class App extends Component {
     });
   };
 
-handleLoadMore = () => {
-  this.setState(prevState => ({
-    page: prevState.page + 1,
-  }), this.fetchImages);
-};
+  handleLoadMore = () => {
+    this.setState(
+      prevState => ({
+        page: prevState.page + 1,
+      }),
+      this.fetchImages
+    );
+  };
 
   handleImageClick = largeImageURL => {
     this.setState(prev => ({ showModal: !prev.showModal, largeImageURL }));
@@ -68,7 +69,8 @@ handleLoadMore = () => {
   };
 
   render() {
-    const { images, isLoading, showModal, largeImageURL, totalResults } = this.state;
+    const { images, isLoading, showModal, largeImageURL, totalResults } =
+      this.state;
 
     return (
       <div>
