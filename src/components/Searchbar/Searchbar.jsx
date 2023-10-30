@@ -1,38 +1,39 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import styles from './Searchbar.module.css';
+import s from './Searchbar.module.css';
+// import { IconName } from "react-icons/vsc";
 
 class Searchbar extends Component {
   state = {
     query: '',
   };
 
-  handleChange = (event) => {
-    this.setState({ query: event.target.value });
+  handleInputChange = e => {
+    this.setState({ query: e.target.value });
   };
 
-  handleSubmit = (event) => {
-    event.preventDefault();
+  handleSubmit = e => {
+    e.preventDefault();
     this.props.onSubmit(this.state.query);
     this.setState({ query: '' });
   };
 
   render() {
     return (
-      <header className={styles.searchbar}>
-        <form className={styles.form} onSubmit={this.handleSubmit}>
-          <button type="submit" className={styles.button}>
-            <span className={styles.buttonLabel}>Search</span>
+      <header className={s.searchbar}>
+        <form className={s.form} onSubmit={this.handleSubmit}>
+          <button type="submit" className={s.btn}>
+            <span className={s.buttonLabel}>Search</span>
           </button>
 
           <input
-            className={styles.input}
+            className={s.input}
             type="text"
             autoComplete="off"
             autoFocus
             placeholder="Search images and photos"
             value={this.state.query}
-            onChange={this.handleChange}
+            onChange={this.handleInputChange}
           />
         </form>
       </header>
