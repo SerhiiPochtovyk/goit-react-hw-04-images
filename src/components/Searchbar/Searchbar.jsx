@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import s from './Searchbar.module.css';
-// import { IconName } from "react-icons/vsc";
+import { VscSearch } from 'react-icons/vsc';
+// import { toast } from 'react-toastify';
 
 class Searchbar extends Component {
   state = {
@@ -23,7 +24,9 @@ class Searchbar extends Component {
       <header className={s.searchbar}>
         <form className={s.form} onSubmit={this.handleSubmit}>
           <button type="submit" className={s.btn}>
-            <span className={s.buttonLabel}>Search</span>
+            <span>
+              <VscSearch size={20} />
+            </span>
           </button>
 
           <input

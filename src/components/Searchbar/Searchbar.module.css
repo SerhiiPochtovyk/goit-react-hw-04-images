@@ -32,7 +32,7 @@
   width: 48px;
   height: 48px;
   border: 0;
-  background-image: url('https://react-icons.github.io/react-icons/icons?name=vsc#:~:text=VscSearchStop-,VscSearch,-VscSend');
+  background-image: url('https://image.flaticon.com/icons/svg/149/149852.svg');
   background-size: 40%;
   background-repeat: no-repeat;
   background-position: center;
@@ -41,6 +41,7 @@
   cursor: pointer;
   outline: none;
 }
+
 .btn:hover {
   opacity: 1;
 }
@@ -64,11 +65,13 @@
   font-size: 20px;
   border: none;
   outline: none;
-  padding-left: 4px;
+  padding-left: 8px;
   padding-right: 4px;
 }
 
 .input::placeholder {
   font: inherit;
-  font-size: 18px;
+  font-size: 20px;
 }
+
+

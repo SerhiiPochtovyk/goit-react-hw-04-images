@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-
+import s from './Modal.module.css';
 
 class Modal extends Component {
   componentDidMount() {
@@ -12,19 +12,15 @@ class Modal extends Component {
   }
 
   handleKeyDown = e => {
-    if (e.code === 'Escape') {
-      this.props.onClose();
-    }
+    e.code === 'Escape' && this.props.onClose();
   };
 
   handleClose = e => {
-    if (e.target === e.currentTarget) {
-      this.props.onClose();
-    }
+    e.target === e.currentTarget && this.props.onClose();
   };
 
   render() {
-    const { largeImageURL, s } = this.props; // Додайте s до деструктуризації
+    const { largeImageURL } = this.props;
     return (
       <div className={s.overlay} onClick={this.handleClose}>
         <div className={s.modal}>

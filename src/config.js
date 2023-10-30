@@ -11,5 +11,3 @@ const fetchImages = (query, page) => {
 const api = { fetchImages };
 
 export default api;
-
-
