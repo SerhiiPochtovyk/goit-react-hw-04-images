@@ -17,25 +17,24 @@ const App = () => {
   const [totalResults, setTotalResults] = useState(0);
 
   useEffect(() => {
-    if (query !== '') {
-      fetchImages();
-    }
+    const fetchData = async () => {
+      if (query !== '') {
+        setIsLoading(true);
+
+        try {
+          const response = await api.fetchImages(query, page);
+          setImages((prevImages) => [...prevImages, ...response.data.hits]);
+          setTotalResults(response.data.totalHits);
+        } catch (error) {
+          console.error('Error fetching images:', error);
+        } finally {
+          setIsLoading(false);
+        }
+      }
+    };
+
+    fetchData();
   }, [query, page]);
-
-  const fetchImages = () => {
-    setIsLoading(true);
-
-    api.fetchImages(query, page) 
-      .then((response) => {
-        setImages((prevImages) => [...prevImages, ...response.data.hits]);
-        setTotalResults(response.data.totalHits);
-        setIsLoading(false);
-      })
-      .catch((error) => {
-        console.error('Error fetching images:', error);
-        setIsLoading(false);
-      });
-  };
 
   const handleSearchSubmit = (newQuery) => {
     setQuery(newQuery);
