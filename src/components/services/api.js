@@ -8,6 +8,6 @@ const fetchImages = (query, page) => {
   );
 };
 
-const api = { fetchImages };
+const api = { fetchImages }; 
 
-export default api;
+export default api; 

@@ -6,6 +6,7 @@ const ImageGalleryItem = ({ webformatURL, largeImageURL, onImageClick }) => {
   const handleClick = () => {
     onImageClick(largeImageURL);
   };
+
   return (
     <li className={s.galleryItem} onClick={handleClick}>
       <img
